@@ -35,19 +35,10 @@ namespace TennisScoringApp
             {
                 switch (player1Points)
                 {
-                    case 0:
-                        score = "Love-All";
-                        break;
-                    case 1:
-                        score = "Fifteen-All";
-                        break;
-                    case 2:
-                        score = "Thirty-All";
-                        break;
-                    default:
-                        score = "Deuce";
-                        break;
-
+                    case 0: return "Love-All";
+                    case 1: return "Fifteen-All";
+                    case 2: return "Thirty-All";
+                    default: return "Deuce";
                 }
             }
             else if (player1Points >= 4 || player2Points >= 4)
