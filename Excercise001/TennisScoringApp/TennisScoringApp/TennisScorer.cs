@@ -35,23 +35,6 @@ namespace TennisScoringApp
             return $"{GetPartScore(player1Points)}-{GetPartScore(player2Points)}";
         }
 
-        private bool IsAnyPlayerGreaterThan3Points()
-        {
-            if (player1Points > 3) return true;
-            if (player2Points > 3) return true;
-            return false;
-        }
-
-        private bool IsNoPlayerGreaterThan3Points()
-        {
-            return !IsAnyPlayerGreaterThan3Points();
-        }
-
-        private bool IsEqualNumberOfPoints()
-        {
-            return player1Points == player2Points;
-        }
-
         private string GetScoreWhenAnyPlayerHasScopedMoreThan3Points()
         {
             if (IsNoPlayerGreaterThan3Points()) throw new Exception("Method called when both player's points is not greater than 3");
@@ -84,6 +67,22 @@ namespace TennisScoringApp
                 case 2: return "Thirty";
                 default: return "Forty";
             }
+        }
+        private bool IsAnyPlayerGreaterThan3Points()
+        {
+            if (player1Points > 3) return true;
+            if (player2Points > 3) return true;
+            return false;
+        }
+
+        private bool IsNoPlayerGreaterThan3Points()
+        {
+            return !IsAnyPlayerGreaterThan3Points();
+        }
+
+        private bool IsEqualNumberOfPoints()
+        {
+            return player1Points == player2Points;
         }
     }
 }
