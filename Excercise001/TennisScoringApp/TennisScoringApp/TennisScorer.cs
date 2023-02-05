@@ -42,6 +42,11 @@ namespace TennisScoringApp
             return false;
         }
 
+        private bool IsNoPlayerGreaterThan3Points()
+        {
+            return !IsAnyPlayerGreaterThan3Points();
+        }
+
         private bool IsEqualNumberOfPoints()
         {
             return player1Points == player2Points;
@@ -49,7 +54,7 @@ namespace TennisScoringApp
 
         private string GetScoreWhenAnyPlayerHasScopedMoreThan3Points()
         {
-            if ((player1Points <= 3) && (player2Points <= 3)) throw new Exception("Method called when both player's points is not greater than 3");
+            if (IsNoPlayerGreaterThan3Points()) throw new Exception("Method called when both player's points is not greater than 3");
 
             var diff = player1Points - player2Points;
             if (diff == 1) return $"Advantage to {player1Name}";
