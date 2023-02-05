@@ -52,12 +52,7 @@ namespace TennisScoringApp
             }
             else
             {
-                for (var i = 1; i < 3; i++)
-                {
-                    if (i == 1) tempScore = player1Points;
-                    else { score += "-"; tempScore = player2Points; }
-                    score = GetPartScore(tempScore);
-                }
+                return $"{GetPartScore(player1Points)}-{GetPartScore(player2Points)}";
             }
             return score;
         }
