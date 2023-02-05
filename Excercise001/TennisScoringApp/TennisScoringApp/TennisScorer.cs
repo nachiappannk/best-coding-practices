@@ -8,8 +8,8 @@ namespace TennisScoringApp
 {
     public class TennisScorer
     {
-        private int m_score1 = 0;
-        private int m_score2 = 0;
+        private int player1Points = 0;
+        private int player2Points = 0;
         private string player1Name;
         private string player2Name;
 
@@ -22,18 +22,18 @@ namespace TennisScoringApp
         public void WonPoint(string playerName)
         {
             if (playerName == player1Name)
-                m_score1 += 1;
+                player1Points += 1;
             else
-                m_score2 += 1;
+                player2Points += 1;
         }
 
         public string GetScore()
         {
             string score = "";
             var tempScore = 0;
-            if (m_score1 == m_score2)
+            if (player1Points == player2Points)
             {
-                switch (m_score1)
+                switch (player1Points)
                 {
                     case 0:
                         score = "Love-All";
@@ -50,9 +50,9 @@ namespace TennisScoringApp
 
                 }
             }
-            else if (m_score1 >= 4 || m_score2 >= 4)
+            else if (player1Points >= 4 || player2Points >= 4)
             {
-                var minusResult = m_score1 - m_score2;
+                var minusResult = player1Points - player2Points;
                 if (minusResult == 1) score = $"Advantage to {player1Name}";
                 else if (minusResult == -1) score = $"Advantage to {player2Name}";
                 else if (minusResult >= 2) score = $"Win for {player1Name}";
@@ -62,8 +62,8 @@ namespace TennisScoringApp
             {
                 for (var i = 1; i < 3; i++)
                 {
-                    if (i == 1) tempScore = m_score1;
-                    else { score += "-"; tempScore = m_score2; }
+                    if (i == 1) tempScore = player1Points;
+                    else { score += "-"; tempScore = player2Points; }
                     switch (tempScore)
                     {
                         case 0:
