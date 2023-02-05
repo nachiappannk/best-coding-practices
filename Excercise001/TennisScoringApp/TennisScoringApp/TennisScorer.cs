@@ -30,9 +30,21 @@ namespace TennisScoringApp
 
         public string GetScore()
         {
-            if (player1Points == player2Points) return GetScoreWhenEqualPoints();
-            if (player1Points > 3 || player2Points > 3) return GetScoreWhenAnyPlayerHasScopedMoreThan3Points();
+            if (IsEqualNumberOfPoints()) return GetScoreWhenEqualPoints();
+            if (IsAnyPlayerGreaterThan3Points()) return GetScoreWhenAnyPlayerHasScopedMoreThan3Points();
             return $"{GetPartScore(player1Points)}-{GetPartScore(player2Points)}";
+        }
+
+        private bool IsAnyPlayerGreaterThan3Points()
+        {
+            if (player1Points > 3) return true;
+            if (player2Points > 3) return true;
+            return false;
+        }
+
+        private bool IsEqualNumberOfPoints()
+        {
+            return player1Points == player2Points;
         }
 
         private string GetScoreWhenAnyPlayerHasScopedMoreThan3Points()
