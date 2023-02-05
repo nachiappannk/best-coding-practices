@@ -50,6 +50,7 @@ namespace TennisScoringApp
 
         private string GetScoreWhenEqualPoints()
         {
+            if (player1Points != player2Points) throw new Exception($"The method {nameof(GetScoreWhenEqualPoints)} called when score is not equal");
             switch (player1Points)
             {
                 case 0: return "Love-All";
