@@ -30,11 +30,8 @@ namespace TennisScoringApp
 
         public string GetScore()
         {
-            if (player1Points == player2Points)
-            {
-                return GetScoreWhenEqualPoints();
-            }
-            else if (player1Points >= 4 || player2Points >= 4)
+            if (player1Points == player2Points) return GetScoreWhenEqualPoints();
+            else if (player1Points > 3 || player2Points > 3)
             {
                 var differenceInPoints = player1Points - player2Points;
                 if (differenceInPoints == 1) return $"Advantage to {player1Name}";
