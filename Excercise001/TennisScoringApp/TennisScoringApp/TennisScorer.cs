@@ -31,10 +31,7 @@ namespace TennisScoringApp
         public string GetScore()
         {
             if (player1Points == player2Points) return GetScoreWhenEqualPoints();
-            if (player1Points > 3 || player2Points > 3)
-            {
-                return GetScoreWhenAnyPlayerHasScopedMoreThan3Points();
-            }
+            if (player1Points > 3 || player2Points > 3) return GetScoreWhenAnyPlayerHasScopedMoreThan3Points();
             else
             {
                 return $"{GetPartScore(player1Points)}-{GetPartScore(player2Points)}";
@@ -43,6 +40,8 @@ namespace TennisScoringApp
 
         private string GetScoreWhenAnyPlayerHasScopedMoreThan3Points()
         {
+            if ((player1Points <= 3) && (player2Points <= 3)) throw new Exception("Method called when both player's points is not greater than 3");
+
             var differenceInPoints = player1Points - player2Points;
             if (differenceInPoints == 1) return $"Advantage to {player1Name}";
             if (differenceInPoints == -1) return $"Advantage to {player2Name}";
