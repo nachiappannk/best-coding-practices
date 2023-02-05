@@ -44,10 +44,10 @@ namespace TennisScoringApp
             else if (player1Points >= 4 || player2Points >= 4)
             {
                 var differenceInPoints = player1Points - player2Points;
-                if (differenceInPoints == 1) score = $"Advantage to {player1Name}";
-                else if (differenceInPoints == -1) score = $"Advantage to {player2Name}";
-                else if (differenceInPoints >= 2) score = $"Win for {player1Name}";
-                else score = $"Win for {player2Name}";
+                if (differenceInPoints == 1) return $"Advantage to {player1Name}";
+                if (differenceInPoints == -1) return $"Advantage to {player2Name}";
+                if (differenceInPoints >= 2) return $"Win for {player1Name}";
+                return $"Win for {player2Name}";
             }
             else
             {
