@@ -32,13 +32,7 @@ namespace TennisScoringApp
         {
             if (player1Points == player2Points)
             {
-                switch (player1Points)
-                {
-                    case 0: return "Love-All";
-                    case 1: return "Fifteen-All";
-                    case 2: return "Thirty-All";
-                    default: return "Deuce";
-                }
+                return GetScoreWhenEqualPoints();
             }
             else if (player1Points >= 4 || player2Points >= 4)
             {
@@ -51,6 +45,17 @@ namespace TennisScoringApp
             else
             {
                 return $"{GetPartScore(player1Points)}-{GetPartScore(player2Points)}";
+            }
+        }
+
+        private string GetScoreWhenEqualPoints()
+        {
+            switch (player1Points)
+            {
+                case 0: return "Love-All";
+                case 1: return "Fifteen-All";
+                case 2: return "Thirty-All";
+                default: return "Deuce";
             }
         }
 
