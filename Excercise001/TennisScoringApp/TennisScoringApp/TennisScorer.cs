@@ -54,7 +54,6 @@ namespace TennisScoringApp
             {
                 return $"{GetPartScore(player1Points)}-{GetPartScore(player2Points)}";
             }
-            return score;
         }
 
         private string GetPartScore(int point)
