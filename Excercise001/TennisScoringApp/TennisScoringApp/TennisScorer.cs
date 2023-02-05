@@ -30,7 +30,6 @@ namespace TennisScoringApp
 
         public string GetScore()
         {
-            string score = "";
             if (player1Points == player2Points)
             {
                 switch (player1Points)
