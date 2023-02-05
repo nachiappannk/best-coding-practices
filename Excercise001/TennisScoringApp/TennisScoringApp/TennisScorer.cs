@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Formats.Asn1.AsnWriter;
 
 namespace TennisScoringApp
 {
@@ -55,24 +56,21 @@ namespace TennisScoringApp
                 {
                     if (i == 1) tempScore = player1Points;
                     else { score += "-"; tempScore = player2Points; }
-                    switch (tempScore)
-                    {
-                        case 0:
-                            score += "Love";
-                            break;
-                        case 1:
-                            score += "Fifteen";
-                            break;
-                        case 2:
-                            score += "Thirty";
-                            break;
-                        case 3:
-                            score += "Forty";
-                            break;
-                    }
+                    score = GetPartScore(tempScore);
                 }
             }
             return score;
+        }
+
+        private string GetPartScore(int point)
+        {
+            switch (point)
+            {
+                case 0: return "Love";
+                case 1: return "Fifteen";
+                case 2: return "Thirty";
+                default: return "Forty";
+            }
         }
     }
 }
